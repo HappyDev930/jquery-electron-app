@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	
+	<!-- Document Title -->
+	<title>Sports Optimizer</title>
+
+	<!-- Styles -->
+	<link href="../static/css/app.css" rel="stylesheet">
+	
+</head>
+<body>
+	
+	<!-- Window -->			
+	<div class="ui window">
+	
+		<!-- Topbar -->	
+		<div class="topbar ui menu">
+			<a href="Dashboard.html" class="logo-topbar item"><span class="logo-main-icon"></span> Sports Optimizer</a>
+							
+			<div class="right">			
+				<a class="item" id="minimize" type="button"><i class="im im-minimize" aria-hidden="true"></i></a>
+				<a class="item maximized disabled" type="button"><i class="im im-maximize" aria-hidden="true"></i></a>
+				<a class="item" id="close" type="button"><i class="im im-x-mark" aria-hidden="true"></i></a>
+			</div>
+		</div><!-- ... topbar -->	
+		
+		<!-- Bottombar -->		
+		<div class="bottombar">
+			<div class="ui menu secondary">
+				<div class="item"><span class="optimizer-name">Optimizer Name</span></div>
+				
+				<div class="item item-spacer"></div>
+				
+				<div class="item item-grouped list-group">
+					<a class="item playerstab active" data-toggle="tab" data-target="#playerstab" type="button"><i class="icimg icimg-playerpool" aria-hidden="true"></i><span>Players</span></a>				
+					<a class="item lineupstab" data-toggle="tab" data-target="#lineupstab" type="button"><i class="icimg icimg-lineups" aria-hidden="true"></i><span>Lineups</span></a>	
+				</div>
+				
+				<div class="item item-spacer"></div>
+
+				<div class="item item-grouped playerstab_only show">
+					<a class="item" data-toggle="modal" data-target="#modalSettings" type="button"><i class="icimg icimg-settings" aria-hidden="true"></i> Settings</a>
+					<a class="item" data-toggle="modal" data-target="#modalUploadProjections" type="button"><i class="icimg icimg-upload" aria-hidden="true"></i> Projections</a>
+				</div>	
+				
+				<div class="item item-grouped lineupstab_only">
+					<a class="item select-all" type="button"><i class="icimg icimg-check" aria-hidden="true"></i><span>All</span></a>
+					<a class="item select-none" type="button"><i class="icimg icimg-check" aria-hidden="true"></i><span>None</span></a>						
+					<a class="item select-export" type="button"><i class="icimg icimg-export" aria-hidden="true"></i><span>Export<span class="tag">0</span></span></a>
+				</div>			
+			</div>			
+		</div><!-- ... bottombar -->
+		
+		<!-- Window Content -->
+		<div class="window-content">	
+			<!-- Window Pane -->		
+			<div class="pane tab-content">		
+				<!-- Players -->			
+				<section id="playerstab" class="pp-content content tab-pane active">
+					<div class="playerpool-pane-group">
+						<div class="playerpool-pane">
+						
+							<!-- Player Pool Sorts -->							
+							<div class="playerpool-sorts">
+								<div class="ui menu secondary">					
+									<div class="item">
+										<div class="search ui input">
+											<input type="text" placeholder="Test..." />
+											<i class="search-icon im im-magnifier"></i>
+										</div>
+									</div>	
+									
+									<div class="item item-grouped">
+										<a class="item active" type="button">All</a>
+										<a class="item" type="button">P</a>
+										<a class="item" type="button">C</a>
+										<a class="item" type="button">1B</a>
+										<a class="item" type="button">2B</a>	
+										<a class="item" type="button">3B</a>	
+										<a class="item" type="button">SS</a>	
+										<a class="item" type="button">OF</a>
+									</div>
+
+									<div class="right">
+										<div class="item item-grouped">
+											<a class="item active" type="button">Test</a>
+											<a class="item" type="button">Test</a>
+											<a class="item" type="button">Test</a>
+											
+											<a class="sort-popover-trigger" type="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"><i class="im im-angle-down" aria-hidden="true"></i></a>
+											<div class="sort-popover dropdown-menu dropdown-menu-right clearfix">
+												<div class="apply-exposure">
+													<label><i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Changes every players max exposure."></i>Global Exposure</label>															
+													
+													<!-- max value 100 -->
+													<input type="tel" value="100" />
+												</div>
+												
+												<hr />
+												
+												<a class="item" type="button"><i class="im im-reset" aria-hidden="true"></i> Reset FPTS</a>
+												<a class="item" type="button"><i class="im im-reset" aria-hidden="true"></i> Reset Exposures</a>
+												<a class="item" type="button"><i class="im im-reset" aria-hidden="true"></i> Reset Locks</a>
+											</div>	
+										</div>
+									</div>
+								</div>	
+							</div><!-- ... playerpool sorts -->
+							
+							<!-- Player Pool Grid -->								
+							<div class="playerpool-grid">
+
+							</div><!-- ... playerpool grid -->
+							
+							<!-- Player Pool Calc -->							
+							<div class="playerpool-calc">
+									
+							</div><!-- ... playerpool calc -->					
+						</div><!-- ... playerpool pane -->
+					</div><!-- ... playerpool pane group -->
+				</section><!-- ... playerpool -->
+				
+				<!-- Lineups -->
+				<section id="lineupstab" class="lin-content content tab-pane">
+					<div class="lineups-pane-group">			
+						<!-- Lineups Sidebar -->						
+						<div class="lineups-pane-sm">
+						
+						</div><!-- ... lineups sidebar -->
+						
+						<!-- Lineup Cards -->
+						<div class="lineups-pane">
+						
+						</div><!-- ... lineups pane -->
+					</div><!-- ... lineups pane group -->					
+				</section><!-- ... lineups -->				
+			</div><!-- ... window pane -->				
+		</div><!-- ... window content -->		
+	</div><!-- ... window -->
+	
+	<!-- Modal Settings -->
+	<div class="modal fade" id="modalSettings" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="faio modal-content">
+			
+				<div class="modal-header">
+					<div class="modal-title">Settings</div>
+					<button type="button" class="close" data-dismiss="modal"><i class="im im-x-mark" aria-hidden="true"></i></button>
+				</div>
+				
+				<div class="modal-body">		
+					<div class="container-fluid">
+						<div class="row">	
+							<div class="col-12 col-lg-6">
+								<div class="modal-positions">
+									<div class="ui level">
+										<h5>Positions <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Positions required for a single lineup"></i></h5>
+									</div>
+									
+									<table class="ui tbl grey positions-table">
+										<thead>
+											<tr>
+												<th>Position</th>
+												<th class="right">Delete</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<input type="tel" value="" placeholder="Enter position/s..." />
+												</td>
+												<td class="right"><i class="ic-delete-1" aria-hidden="true"></i></td>
+											</tr>
+										</tbody>
+									</table>
+									
+									<div class="ui level add-position">
+										<button class="ui button primary i-left" type="button"><i class="im im-plus-circle" aria-hidden="true"></i> Add Position</button>
+									</div>
+								</div>											
+							</div>
+						
+							<div class="col-12 col-lg-6">	
+								<div class="modal-rules">
+									<div class="ui level">
+										<h5>Rules <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Rules required for a single lineup"></i></h5>
+									</div>
+									
+									<table class="ui tbl grey rules-table">
+										<thead>
+											<tr>
+												<th>Rule</th>
+												<th class="right">Set</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Minimum Salary Cap <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Minimum salary allowed for a single lineup"></i></td>
+												<td class="right">
+													<label>0 if not changed</label>
+													<input class="rules-minsalary" type="tel" value="0" />
+												</td>
+											</tr>
+											
+											<tr>
+												<td>Maximum Salary Cap <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Maximum salary allowed for a single lineup"></i></td>
+												<td class="right">
+													<input class="rules-maxsalary" type="tel" value="0" />
+												</td>
+											</tr>
+											
+											<tr>
+												<td>Max. Players From 1 Team <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Maximum allowed players from a single team for a single lineup"></i></td>
+												<td class="right">
+													<label>0 if not needed</label>
+													<input class="rules-maxplayers" type="tel" value="0" />
+												</td>
+											</tr>
+											
+											<tr>
+												<td>Min. different teams <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="Single lineup must have players from set minimum number of different teams"></i></td>
+												<td class="right">
+													<label>0 if not needed</label>
+													<input class="rules-minteams" type="tel" value="0" />
+												</td>
+											</tr>
+											
+											<tr>
+												<td>No opponent vs <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="No opponent vs. selected position will be added to lineup"></i></td>
+												<td class="right">
+													<label>none if not needed</label>
+													<select class="rules-noopponent">
+														<option value="">None</option>
+													</select>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>									
+							</div>							
+						</div>
+						
+						<div class="row">					
+							<div class="col-12">						
+								<div class="modal-optimizername">
+									<div class="ui level">
+										<h5>Name <i class="im im-note-o i-info" aria-hidden="true" tabindex="0" data-toggle="popover" data-trigger="hover" data-content="This is your optimizer name"></i></h5>
+									</div>
+									
+									<table class="ui tbl grey optimizername-table">
+										<thead>
+											<tr>
+												<th>Optimizer Name</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<input class="name-optimizername" type="text" value="" placeholder="Enter Name..." />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>								
+							</div>							
+						</div>
+						
+						<div class="row">
+							<div class="col-12">
+								<button class="ui button success i-left" type="button"><i class="im im-floppy-disk" aria-hidden="true"></i> Save Settings</button>
+							</div>
+						</div>
+					</div>										
+				</div>
+			</div>
+		</div>
+	</div><!-- ... modal settings -->	
+	
+	<!-- Modal Upload Projections -->
+	<div class="modal fade" id="modalUploadProjections" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="faio modal-content">
+			
+				<div class="modal-header">
+					<div class="modal-title">Projections</div>
+					<button type="button" class="close" data-dismiss="modal"><i class="im im-x-mark" aria-hidden="true"></i></button>
+				</div>
+		  
+				<div class="modal-body">			
+					<div class="container-fluid">
+
+					</div>
+					
+					<div class="level-box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- ... modal upload projections -->
+
+</body>
+	<!--   Core JS Files   -->	
+	<script>require('../../renderer.js')</script>
+	<script>window.$ = window.jQuery = require('../static/js/vendors/jquery.min.js');</script>	
+	<script type="text/javascript" src="../static/js/vendors/bootstrap.bundle.min.js"></script>	
+	<script type="text/javascript" src="../static/js/app.js"></script>
+	<script type="text/javascript" src="../static/js/optimizer.js"></script>
+</html>
